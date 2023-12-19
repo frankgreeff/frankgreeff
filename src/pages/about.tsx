@@ -60,8 +60,6 @@ type AboutPageProps = {
 const AboutPage = (props: AboutPageProps) => {
   const { outboundLinks, page } = props
 
-  console.log(outboundLinks)
-
   return (
     <DefaultLayout>
       <NextSeo

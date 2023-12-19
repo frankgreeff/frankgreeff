@@ -41,7 +41,7 @@ const ContactPage = (props: ContactPageProps) => {
   return (
     <DefaultLayout>
       <NextSeo
-        title={`Ken Greeff | Contact Me`}
+        title={`Frank Greeff | Contact Me`}
         description={`Contact me using the form on this page.`}
       />
 

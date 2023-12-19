@@ -18,9 +18,9 @@ const DefaultLayout = (props: DefaultLayoutProps) => {
   return (
     <Flex minHeight="100vh">
       <DefaultSeo
-        title="Ken Greeff | Software Engineer"
-        description="Building production software applications and a healthy lifestyle."
-        canonical={`https://www.kengreeff.com${asPath}`}
+        title="Frank Greeff"
+        description="CEO & Entrepreneur with a passion for building high performing businesses."
+        canonical={`https://www.frankgreeff.com${asPath}`}
         additionalLinkTags={[
           {
             rel: 'icon',
@@ -33,8 +33,8 @@ const DefaultLayout = (props: DefaultLayoutProps) => {
 
       <Flex
         direction="column"
-        marginLeft={['0', "200px"]}
-        width={['100%', "calc(100% - 200px)"]}
+        marginLeft={['0', "240px"]}
+        width={['100%', "calc(100% - 240px)"]}
       >
         <Header />
 

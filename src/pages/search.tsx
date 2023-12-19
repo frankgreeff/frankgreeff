@@ -6,15 +6,15 @@ import { gql } from '@apollo/client'
 import client from '@/utils/apollo-client'
 
 import type { GetServerSidePropsContext } from 'next'
-import type { BlogPost } from '@/pages/index'
+import type { Video } from '@/pages/index'
 
 import DefaultLayout from '@/layout/DefaultLayout'
 
-import BlogPostTile from '@/components/BlogPostTile'
+import VideoTile from '@/components/VideoTile'
 
-const SEARCH_BLOG_POSTS_QUERY = gql`
-  query SearchBlogPosts($string: String!) {
-    blogPostCollection(where: {
+const SEARCH_VIDEOS_QUERY = gql`
+  query SearchVideos($string: String!) {
+    videoCollection(where: {
       OR: [
         { title_contains: $string },
         { content_contains: $string }
@@ -36,11 +36,11 @@ const SEARCH_BLOG_POSTS_QUERY = gql`
 `
 
 type SearchPageProps = {
-  blogPosts: BlogPost[],
+  videos: Video[],
 }
 
 const SearchPage = (props: SearchPageProps) => {
-  const { blogPosts } = props
+  const { videos } = props
 
   const { query: { string }} = useRouter()
 
@@ -50,7 +50,7 @@ const SearchPage = (props: SearchPageProps) => {
         Results for {string}
       </Heading>
 
-      {!blogPosts.length && (
+      {!videos.length && (
         <>
           <Heading marginTop="4" size="md">
             Sorry, no results found. Please try searching for something else.
@@ -69,8 +69,8 @@ const SearchPage = (props: SearchPageProps) => {
         width="100%"
       >
 
-        {blogPosts.map((blogPost) => (
-          <BlogPostTile key={blogPost.sys.id} blogPost={blogPost} />
+        {videos.map((video) => (
+          <VideoTile key={video.sys.id} video={video} />
         ))}
       </Grid>
     </DefaultLayout>
@@ -81,7 +81,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext){
   const { query: { string } } = context
   
   const { data } = await client.query({
-    query: SEARCH_BLOG_POSTS_QUERY,
+    query: SEARCH_VIDEOS_QUERY,
     variables: {
       string,
     },
@@ -89,7 +89,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext){
 
   return {
     props: {
-      blogPosts: data?.blogPostCollection?.items || [],
+      videos: data?.videoCollection?.items || [],
     },
   }
 }

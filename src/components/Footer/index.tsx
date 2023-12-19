@@ -37,26 +37,14 @@ const Footer = () => {
         paddingBottom="4"
       >
         <Flex>
-          <Link href="/posts">
-            Blog
+          <Link href="/podcast">
+            Chew the Fat
           </Link>
 
           <Text marginX="1">|</Text>
 
-          <Link href="/projects">
-            Projects
-          </Link>
-
-          <Text marginX="1">|</Text>
-
-          <Link href="/health">
-            Health
-          </Link>
-
-          <Text marginX="1">|</Text>
-
-          <Link href="/recipes">
-            Recipes
+          <Link href="/cookBook">
+            Eat with Purpose
           </Link>
 
           <Text marginX="1">|</Text>
@@ -73,7 +61,7 @@ const Footer = () => {
         </Flex>
 
         <Text marginLeft={[0, "auto"]} marginTop={[4, 0]}>
-          {new Date().getFullYear()} Greeff Consulting Pty Ltd
+          {new Date().getFullYear()} Frank Greeff Personal Brand Holdings Pty Ltd
         </Text>
       </Flex>
     </Flex>

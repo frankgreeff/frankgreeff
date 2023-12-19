@@ -40,26 +40,14 @@ const MobileNavigation = (props: MobileNavigationProps) => {
             </ListItem>
 
             <ListItem borderBottom="1px solid" borderColor="gray.100">
-              <NextLink href="/posts">
-                Blog
+              <NextLink href="/podcast">
+                Chew the Fat
               </NextLink>
             </ListItem>
             
             <ListItem borderBottom="1px solid" borderColor="gray.100">
-              <NextLink href="/projects">
-                Projects
-              </NextLink>
-            </ListItem>
-
-            <ListItem borderBottom="1px solid" borderColor="gray.100">
-              <NextLink href="/health">
-                Health
-              </NextLink>
-            </ListItem>
-
-            <ListItem borderBottom="1px solid" borderColor="gray.100">
-              <NextLink href="/recipes">
-                Recipes
+              <NextLink href="/cookBook">
+                Eat with Purpose
               </NextLink>
             </ListItem>
 

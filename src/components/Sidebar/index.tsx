@@ -4,11 +4,11 @@ import { Flex, ListItem, UnorderedList } from '@chakra-ui/react'
 const Sidebar = () => {
   return (
     <Flex
-      backgroundColor="black"
+      backgroundColor="#19191B"
       display={['none', 'flex']}
       height="100vh"
       position="fixed"
-      width="200px"
+      width="240px"
     >
       <UnorderedList
         color="white"
@@ -26,26 +26,14 @@ const Sidebar = () => {
         </ListItem>
 
         <ListItem borderBottom="1px solid" borderColor="gray.700">
-          <NextLink href="/posts">
-            Blog
+          <NextLink href="/podcast">
+            Chew the Fat
           </NextLink>
         </ListItem>
         
         <ListItem borderBottom="1px solid" borderColor="gray.700">
-          <NextLink href="/projects">
-            Projects
-          </NextLink>
-        </ListItem>
-
-        <ListItem borderBottom="1px solid" borderColor="gray.700">
-          <NextLink href="/health">
-            Health
-          </NextLink>
-        </ListItem>
-
-        <ListItem borderBottom="1px solid" borderColor="gray.700">
-          <NextLink href="/recipes">
-            Recipes
+          <NextLink href="/cookBook">
+            Eat with Purpose
           </NextLink>
         </ListItem>
 

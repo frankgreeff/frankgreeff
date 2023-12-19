@@ -4,28 +4,17 @@ import client from '@/utils/apollo-client'
 
 import { type NextApiRequest, type NextApiResponse } from 'next'
 
-const sitemapString = `https://www.kengreeff.com/about
-https://www.kengreeff.com/contact
-https://www.kengreeff.com/health
-https://www.kengreeff.com/healthKickstart
-https://www.kengreeff.com/posts
-https://www.kengreeff.com/projects
-https://www.kengreeff.com/recipes
+const sitemapString = `https://www.frankgreeff.com/about
+https://www.frankgreeff.com/contact
 `
 
-const GET_BLOG_POSTS_QUERY = gql`
-  query GetBlogPosts {
-    blogPostCollection {
+const GET_VIDEOS_QUERY = gql`
+  query GetVideos {
+    videoCollection {
       items {
-        content
-        mainImage {
-          url
-        }
-        summary
         sys {
           id
         }
-        title
       }
     }
   }
@@ -33,15 +22,15 @@ const GET_BLOG_POSTS_QUERY = gql`
 
 const sitemap = async (req: NextApiRequest, res: NextApiResponse) => {
   const { data } = await client.query({
-      query: GET_BLOG_POSTS_QUERY,
+      query: GET_VIDEOS_QUERY,
   })
 
-  const postsString = data?.blogPostCollection?.items.reduce((acc, post) => {
-    const postUrl = `https://www.kengreeff.com/posts/${post.sys.id}\n`
-    return acc + postUrl
+  const videosString = data?.videoCollection?.items.reduce((acc, video) => {
+    const videoUrl = `https://www.frankgreeff.com/videos/${video.sys.id}\n`
+    return acc + videoUrl
   }, '')
 
-  res.send(sitemapString + postsString)
+  res.send(sitemapString + videosString)
 }
 
 export default sitemap
